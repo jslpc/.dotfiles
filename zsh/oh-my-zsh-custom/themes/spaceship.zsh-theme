@@ -1,0 +1,1 @@
+/Users/jake/.dotfiles/zsh/oh-my-zsh-custom/themes/spaceship-prompt/spaceship.zsh-theme

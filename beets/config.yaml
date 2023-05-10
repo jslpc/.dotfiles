@@ -1,0 +1,78 @@
+directory: /Volumes/Samsung T5/Music/Music Library/
+library: /Users/Jake/.dotfiles/beets/library.db
+pluginpath: /Users/Jake/CLI/beets/beetsplug
+import:
+    move: yes
+    copy: no
+    write: yes
+
+original_date: yes
+bell: yes
+
+match:
+    ignored_media: ['Data CD', 'DVD', 'DVD-Video', 'Blu-ray', 'HD-DVD',
+                    'VCD', 'SVCD', 'UMD', 'VHS']
+paths:
+    default: %left{%the{$albumartist},1}/%the{$albumartist}/$album (%if{$original_year,$original_year,$year}) [$format $bitdepth]/$track - $title
+    comp: Compilations/$album ($year) [$format $bitdepth]/$track - $title
+
+plugins: ftintitle fetchart embedart the rewrite extrafiles zero lastgenre importadded scrub
+
+rewrite:
+    albumartist .*freddie gibbs.*: Freddie Gibbs
+    artist .*jimi hendrix.*: Jimi Hendrix
+    artist JAY-Z: Jay-Z
+    artist Genius/GZA: GZA
+
+fetchart:
+    cautious: true
+    cover_names:
+        - cover
+        - front
+        - folder
+        - album
+        - art
+    sources: filesystem coverart itunes *
+    enforce_ratio: yes
+
+ftintitle:
+    format: (feat. {0})
+
+extrafiles:
+    patterns:
+        all:
+            - '*.*'
+            - '*/'
+
+zero:
+    fields: comments bpm
+    update_database: true
+
+the:
+    a: no
+
+embedart:
+    ifempty: yes
+    remove_art_file: no
+
+importadded:
+    preserve_mtimes: yes
+    preserve_write_mtimes: yes
+
+# lyrics:
+#     fallback: ''
+#     sources: genius musixmatch
+
+# scrub:
+#     auto: yes
+
+lastgenre:
+    auto: yes
+    canonical: /Users/Jake/.dotfiles/beets/lastgenre/genres-tree.yaml
+    count: 3
+    fallback: ''
+    force: yes
+    min_weight: 68
+    source: album
+    separator: ', '
+    whitelist: /Users/Jake/.dotfiles/beets/lastgenre/genres.txt
