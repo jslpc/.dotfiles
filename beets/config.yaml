@@ -1,6 +1,6 @@
 directory: /Volumes/Samsung T5/Music/Music Library/
 library: /Users/Jake/.dotfiles/beets/library.db
-pluginpath: /Users/Jake/Code/beetbox/beets/beetsplug
+pluginpath: /Users/Jake/Developer/beetbox/beets/beetsplug
 import:
     move: yes
     copy: no
