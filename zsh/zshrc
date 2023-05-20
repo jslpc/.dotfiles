@@ -9,7 +9,6 @@ zstyle ':omz:plugins:nvm' lazy yes
 source $ZSH/oh-my-zsh.sh
 
 # PATH
-export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/Users/Jake/.local/bin:$PATH"
 export PATH="/Users/Jake/CLI:$PATH"
