@@ -11,11 +11,14 @@ source $ZSH/oh-my-zsh.sh
 # PATH
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/Users/Jake/.local/bin:$PATH"
-export PATH="/Users/Jake/CLI:$PATH"
-export PATH="/Users/Jake/CLI/beets:$PATH"
+export PATH="/Users/Jake/Code:$PATH"
+export PATH="/Users/Jake/Code/beetbox/beets:$PATH"
+export PATH="/Users/Jake/Code/tmcw/bespoke:$PATH"
 export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
+export PATH="$(yarn global bin):$PATH"
 
 # Other variables
+export XDG_CONFIG_HOME=~/.dotfiles/nvim
 export NVM_DIR=~/.nvm
 export BEETSDIR=~/.dotfiles/beets
 export EDITOR=code
