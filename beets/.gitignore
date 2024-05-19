@@ -4,7 +4,3 @@
 ._*
 .Spotlight-V100
 .Trashes
-
-# beets specific
-library.db
-state.pickle
