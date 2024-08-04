@@ -16,12 +16,13 @@ paths:
     default: %left{%the{$albumartist},1}/%the{$albumartist}/$album (%if{$original_year,$original_year,$year}) [$format $bitdepth]/$track - $title
     comp: Compilations/$album ($year) [$format $bitdepth]/$track - $title
 
-plugins: ftintitle fetchart embedart the rewrite extrafiles lastgenre importadded # scrub zero
+plugins: ftintitle fetchart embedart the rewrite extrafiles lastgenre importadded
 
 rewrite:
     albumartist .*freddie gibbs.*: Freddie Gibbs
     artist .*jimi hendrix.*: Jimi Hendrix
     artist JAY-Z: Jay-Z
+    artist Jay Z: Jay-Z
     artist Genius/GZA: GZA
 
 fetchart:
@@ -58,13 +59,6 @@ embedart:
 importadded:
     preserve_mtimes: yes
     preserve_write_mtimes: yes
-
-# lyrics:
-#     fallback: ''
-#     sources: genius musixmatch
-
-# scrub:
-#     auto: yes
 
 lastgenre:
     auto: yes
