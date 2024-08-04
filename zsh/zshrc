@@ -1,39 +1,80 @@
-# Path to my oh-my-zsh config
-export ZSH="$HOME/.oh-my-zsh"
-export ZSH_CUSTOM=~/.dotfiles/zsh/oh-my-zsh-custom
+# Path to my oh-my-zsh config  
+export ZSH="$HOME/.oh-my-zsh"  
+export ZSH_CUSTOM="$HOME/.dotfiles/zsh/oh-my-zsh-custom"  
 export ZSH_THEME="spaceship"
-zstyle ':omz:plugins:nvm' lazy yes
-plugins=(git extract macos safe-paste vscode)
 
+# Oh-my-zsh plugins  
+zstyle ':omz:plugins:nvm' lazy yes  
+plugins=(git extract macos safe-paste vscode)  
 source $ZSH/oh-my-zsh.sh
 
-# PATH
-export PATH="/usr/local:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/Developer:$PATH"
-export PATH="$HOME/Developer/jslpc/scripts:$PATH"
-# Python + pip
-export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
-export PATH="$HOME/Library/Python/3.11/bin:$PATH"
-export PATH="$PATH:$HOME/.local/bin"
+# Basics  
+export VISUAL=nvim  
+export EDITOR=nvim
 
-# Other apps
-export BEETSDIR=~/.dotfiles/beets
-export EDITOR=code
-export MPV_HOME=~/.config/mpv
+# PATH configuration  
+export PYENV_ROOT="$HOME/.pyenv"  
+path_elements=(  
+  "$PYENV_ROOT/shims"  
+  "$HOME/.yarn/bin"  
+  "$HOME/.config/yarn/global/node_modules/.bin"  
+  "$HOME/.nvm/versions/node/v21.4.0/bin"  
+  "$HOME/.pyenv/versions"  
+  "$HOME/Developer/jslpc/scripts"  
+  "$HOME/.cargo/bin"  
+  "$HOME/.local/bin"  
+  "/opt/homebrew/bin"  
+  "/opt/homebrew/sbin"  
+  "/usr/local/sbin"  
+  "/usr/local/bin"  
+  "/System/Cryptexes/App/usr/bin"  
+  "/usr/bin"  
+  "/bin"  
+  "/usr/sbin"  
+  "/sbin"  
+  "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"  
+  "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"  
+  "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"  
+  "/opt/X11/bin"  
+  "/Library/Apple/usr/bin"  
+  "/usr/local/MacGPG2/bin"  
+  "/Applications/Little Snitch.app/Contents/Components"  
+  "/Applications/VMware Fusion.app/Contents/Public"  
+  "/usr/local/go/bin"   
+  "/Applications/iTerm.app/Contents/Resources/utilities"  
+)
 
-# Prevent rm -f from asking for confirmation on things like `rm -f *.bak`
-setopt rm_star_silent
+for path_element in "${path_elements[@]}"; do  
+  export PATH="$path_element:$PATH"  
+done
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
+# Unique path elements  
 typeset -U PATH
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# Apps  
+export BEETSDIR="$HOME/.dotfiles/beets"
 
+# nvm  
+export NVM_DIR="$HOME/.nvm"  
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm  
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# pyenv initialization  
+eval "$(pyenv init --path)"  
+eval "$(pyenv init -)"
+
+# Set up pkg-config for Python 3.12  
+export PKG_CONFIG_PATH="$HOME/.pyenv/versions/3.12.0/lib/pkgconfig:$PKG_CONFIG_PATH"  
+export PYTHON3_CFLAGS=$(python3-config --cflags)  
+export PYTHON3_LIBS=$(python3-config --ldflags)
+
+# Prevent rm -f from asking for confirmation on things like `rm -f *.bak`  
+setopt rm_star_silent
+
+# Load iTerm2 shell integration  
+test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_integration.zsh"
+
+# pyenv  
+if command -v pyenv 1>/dev/null 2>&1; then  
+  eval "$(pyenv init -)"  
+fi  
