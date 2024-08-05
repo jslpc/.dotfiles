@@ -27,7 +27,6 @@ path_elements=(
   "/opt/homebrew/sbin"  
   "/usr/local/sbin"  
   "/usr/local/bin"  
-  "/System/Cryptexes/App/usr/bin"  
   "/usr/bin"  
   "/bin"  
   "/usr/sbin"  
@@ -35,12 +34,13 @@ path_elements=(
   "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"  
   "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"  
   "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"  
+  "/System/Cryptexes/App/usr/bin"  
   "/opt/X11/bin"  
   "/Library/Apple/usr/bin"  
   "/usr/local/MacGPG2/bin"  
+  "/usr/local/go/bin"   
   "/Applications/Little Snitch.app/Contents/Components"  
   "/Applications/VMware Fusion.app/Contents/Public"  
-  "/usr/local/go/bin"   
   "/Applications/iTerm.app/Contents/Resources/utilities"  
 )
 

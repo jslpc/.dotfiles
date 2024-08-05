@@ -1,5 +1,5 @@
 directory: /Volumes/Samsung T5/Music Library/
-library: /Users/Jake/.dotfiles/beets/library.db
+library: /Users/jake/.dotfiles/beets/library.db
 pluginpath: /Users/jake/Developer/Github/beetbox/beets/beetsplug
 import:
     move: yes
@@ -14,7 +14,7 @@ match:
                     'VCD', 'SVCD', 'UMD', 'VHS']
 paths:
     default: %left{%the{$albumartist},1}/%the{$albumartist}/$album (%if{$original_year,$original_year,$year}) [$format $bitdepth]/$track - $title
-    comp: Compilations/$album ($year) [$format $bitdepth]/$track - $title
+    comp: \!Compilations/$album ($year) [$format]/$track - $title
 
 plugins: ftintitle fetchart embedart the rewrite extrafiles lastgenre importadded
 
@@ -62,11 +62,11 @@ importadded:
 
 lastgenre:
     auto: yes
-    canonical: /Users/Jake/.dotfiles/beets/lastgenre/genres-tree.yaml
+    canonical: /Users/jake/.dotfiles/beets/lastgenre/genres-tree.yaml
     count: 3
     fallback: ''
     force: yes
     min_weight: 68
     source: album
     separator: ', '
-    whitelist: /Users/Jake/.dotfiles/beets/lastgenre/genres.txt
+    whitelist: /Users/jake/.dotfiles/beets/lastgenre/genres.txt
