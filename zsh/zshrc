@@ -62,9 +62,10 @@ export NVM_DIR="$HOME/.nvm"
 # pyenv initialization  
 eval "$(pyenv init --path)"  
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
-# Set up pkg-config for Python 3.12  
-export PKG_CONFIG_PATH="$HOME/.pyenv/versions/3.12.0/lib/pkgconfig:$PKG_CONFIG_PATH"  
+# Set up pkg-config for Python 3.12 and VapourSynth  
+export PKG_CONFIG_PATH="$HOME/.pyenv/versions/3.12.0/lib/pkgconfig:/usr/local/lib/pkgconfig:/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"  
 export PYTHON3_CFLAGS=$(python3-config --cflags)  
 export PYTHON3_LIBS=$(python3-config --ldflags)
 
