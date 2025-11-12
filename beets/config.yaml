@@ -1,72 +1,82 @@
-directory: /Volumes/Samsung T5/music-library/
+directory: /Volumes/home/media/music/
 library: /Users/jake/.dotfiles/beets/library.db
 pluginpath: /Users/jake/Developer/Github/beetbox/beets/beetsplug
 import:
-    move: yes
-    copy: no
-    write: yes
+  move: yes
+  copy: no
+  write: yes
 
 original_date: yes
 bell: yes
 
 match:
-    ignored_media: ['Data CD', 'DVD', 'DVD-Video', 'Blu-ray', 'HD-DVD',
-                    'VCD', 'SVCD', 'UMD', 'VHS']
+  ignored_media:
+    [
+      "Data CD",
+      "DVD",
+      "DVD-Video",
+      "Blu-ray",
+      "HD-DVD",
+      "VCD",
+      "SVCD",
+      "UMD",
+      "VHS",
+    ]
 paths:
-    default: %left{%the{$albumartist},1}/%the{$albumartist}/$album (%if{$original_year,$original_year,$year}) [$format $bitdepth]/$track - $title
-    comp: \!Compilations/$album ($year) [$format]/$track - $title
+  default: %left{%the{$albumartist},1}/%the{$albumartist}/$album (%if{$original_year,$original_year,$year}) [$format $bitdepth]/$track - $title
+  comp: \!Compilations/$album ($year) [$format]/$track - $title
 
 plugins: ftintitle fetchart embedart the rewrite extrafiles lastgenre importadded
 
 rewrite:
-    albumartist .*freddie gibbs.*: Freddie Gibbs
-    artist .*jimi hendrix.*: Jimi Hendrix
-    artist JAY-Z: Jay-Z
-    artist Jay Z: Jay-Z
-    artist Genius/GZA: GZA
+  albumartist .*freddie gibbs.*: Freddie Gibbs
+  artist .*jimi hendrix.*: Jimi Hendrix
+  artist JAY-Z: Jay-Z
+  artist Jay Z: Jay-Z
+  artist Genius/GZA: GZA
 
 fetchart:
-    cautious: true
-    cover_names:
-        - cover
-        - front
-        - folder
-        - album
-        - art
-    sources: filesystem coverart itunes *
-    enforce_ratio: yes
+  cautious: true
+  cover_names:
+    - cover
+    - front
+    - folder
+    - album
+    - art
+  sources: filesystem coverart itunes *
+  enforce_ratio: no
 
 ftintitle:
-    format: (feat. {0})
+  format: (feat. {0})
 
 extrafiles:
-    patterns:
-        all:
-            - '*.*'
-            - '*/'
+  patterns:
+    all:
+      - "*.*"
+      - "*/"
 
 zero:
-    fields: comments bpm
-    update_database: true
+  fields: comments bpm
+  update_database: true
 
 the:
-    a: no
+  a: no
 
 embedart:
-    ifempty: yes
-    remove_art_file: no
+  ifempty: yes
+  remove_art_file: no
 
 importadded:
-    preserve_mtimes: yes
-    preserve_write_mtimes: yes
+  preserve_mtimes: yes
+  preserve_write_mtimes: yes
 
 lastgenre:
-    auto: yes
-    canonical: /Users/jake/.dotfiles/beets/lastgenre/genres-tree.yaml
-    count: 3
-    fallback: ''
-    force: yes
-    min_weight: 68
-    source: album
-    separator: ', '
-    whitelist: /Users/jake/.dotfiles/beets/lastgenre/genres.txt
+  auto: yes
+  canonical: /Users/jake/.dotfiles/beets/lastgenre/genres-tree.yaml
+  count: 3
+  fallback: ""
+  force: yes
+  min_weight: 68
+  source: album
+  separator: ", "
+  whitelist: /Users/jake/.dotfiles/beets/lastgenre/genres.txt
