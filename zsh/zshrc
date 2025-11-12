@@ -72,6 +72,9 @@ export PYTHON3_LIBS=$(python3-config --ldflags)
 # Prevent rm -f from asking for confirmation on things like `rm -f *.bak`  
 setopt rm_star_silent
 
+# Use 1Password as ssh agent socket
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
 # Load iTerm2 shell integration  
 test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_integration.zsh"
 
