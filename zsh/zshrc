@@ -1,84 +1,84 @@
-# Path to my oh-my-zsh config  
-export ZSH="$HOME/.oh-my-zsh"  
-export ZSH_CUSTOM="$HOME/.dotfiles/zsh/oh-my-zsh-custom"  
+# Path to my oh-my-zsh config
+export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$HOME/.dotfiles/zsh/oh-my-zsh-custom"
 export ZSH_THEME="spaceship"
 
-# Oh-my-zsh plugins  
-zstyle ':omz:plugins:nvm' lazy yes  
-plugins=(git extract macos safe-paste vscode)  
+# Oh-my-zsh plugins
+zstyle ':omz:plugins:nvm' lazy yes
+plugins=(git extract macos safe-paste vscode)
 source $ZSH/oh-my-zsh.sh
 
-# Basics  
-export VISUAL=nvim  
+# Basics
+export VISUAL=nvim
 export EDITOR=nvim
 
-# PATH configuration  
-export PYENV_ROOT="$HOME/.pyenv"  
-path_elements=(  
-  "$PYENV_ROOT/shims"  
-  "$HOME/.yarn/bin"  
-  "$HOME/.config/yarn/global/node_modules/.bin"  
-  "$HOME/.nvm/versions/node/v21.4.0/bin"  
-  "$HOME/.pyenv/versions"  
-  "$HOME/Developer/jslpc/scripts"  
-  "$HOME/.cargo/bin"  
-  "$HOME/.local/bin"  
-  "/opt/homebrew/bin"  
-  "/opt/homebrew/sbin"  
-  "/usr/local/sbin"  
-  "/usr/local/bin"  
-  "/usr/bin"  
-  "/bin"  
-  "/usr/sbin"  
-  "/sbin"  
-  "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"  
-  "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"  
-  "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"  
-  "/System/Cryptexes/App/usr/bin"  
-  "/opt/X11/bin"  
-  "/Library/Apple/usr/bin"  
-  "/usr/local/MacGPG2/bin"  
-  "/usr/local/go/bin"   
-  "/Applications/Little Snitch.app/Contents/Components"  
-  "/Applications/VMware Fusion.app/Contents/Public"  
-  "/Applications/iTerm.app/Contents/Resources/utilities"  
+# PATH configuration
+export PYENV_ROOT="$HOME/.pyenv"
+path_elements=(
+  "$PYENV_ROOT/shims"
+  "$HOME/.yarn/bin"
+  "$HOME/.config/yarn/global/node_modules/.bin"
+  "$HOME/.nvm/versions/node/v21.4.0/bin"
+  "$HOME/.pyenv/versions"
+  "$HOME/Developer/jslpc/scripts"
+  "$HOME/.cargo/bin"
+  "$HOME/.local/bin"
+  "/opt/homebrew/bin"
+  "/opt/homebrew/sbin"
+  "/usr/local/sbin"
+  "/usr/local/bin"
+  "/usr/bin"
+  "/bin"
+  "/usr/sbin"
+  "/sbin"
+  "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+  "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+  "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+  "/System/Cryptexes/App/usr/bin"
+  "/opt/X11/bin"
+  "/Library/Apple/usr/bin"
+  "/usr/local/MacGPG2/bin"
+  "/usr/local/go/bin"
+  "/Applications/Little Snitch.app/Contents/Components"
+  "/Applications/VMware Fusion.app/Contents/Public"
+  "/Applications/iTerm.app/Contents/Resources/utilities"
 )
 
-for path_element in "${path_elements[@]}"; do  
-  export PATH="$path_element:$PATH"  
+for path_element in "${path_elements[@]}"; do
+  export PATH="$path_element:$PATH"
 done
 
-# Unique path elements  
+# Unique path elements
 typeset -U PATH
 
-# Apps  
+# Apps
 export BEETSDIR="$HOME/.dotfiles/beets"
 
-# nvm  
-export NVM_DIR="$HOME/.nvm"  
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm  
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# pyenv initialization  
-eval "$(pyenv init --path)"  
+# pyenv initialization
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# Set up pkg-config for Python 3.12 and VapourSynth  
-export PKG_CONFIG_PATH="$HOME/.pyenv/versions/3.12.0/lib/pkgconfig:/usr/local/lib/pkgconfig:/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"  
-export PYTHON3_CFLAGS=$(python3-config --cflags)  
+# Set up pkg-config for Python 3.12 and VapourSynth
+export PKG_CONFIG_PATH="$HOME/.pyenv/versions/3.12.0/lib/pkgconfig:/usr/local/lib/pkgconfig:/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PYTHON3_CFLAGS=$(python3-config --cflags)
 export PYTHON3_LIBS=$(python3-config --ldflags)
 
-# Prevent rm -f from asking for confirmation on things like `rm -f *.bak`  
+# Prevent rm -f from asking for confirmation on things like `rm -f *.bak`
 setopt rm_star_silent
 
 # Use 1Password as ssh agent socket
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
-# Load iTerm2 shell integration  
+# Load iTerm2 shell integration
 test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_integration.zsh"
 
-# pyenv  
-if command -v pyenv 1>/dev/null 2>&1; then  
-  eval "$(pyenv init -)"  
-fi  
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
