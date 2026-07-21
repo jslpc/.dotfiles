@@ -58,3 +58,6 @@ setopt rm_star_silent # No confirmation for 'rm -f *'
 # Pro Tip: mise can also manage your Node and Python versions,
 # allowing you to eventually delete nvm and pyenv entirely.
 eval "$(mise activate zsh)"
+
+# Hermes Agent — ensure ~/.local/bin is on PATH
+export PATH="$HOME/.local/bin:$PATH"

@@ -26,7 +26,7 @@ paths:
   default: %left{%the{$albumartist},1}/%the{$albumartist}/$album (%if{$original_year,$original_year,$year}) [$format $bitdepth]/$track - $title
   comp: \!Compilations/$album ($year) [$format]/$track - $title
 
-plugins: ftintitle embedart the rewrite extrafiles lastgenre importadded musicbrainz
+plugins: ftintitle embedart the rewrite filetote lastgenre importadded musicbrainz
 
 rewrite:
   albumartist .*freddie gibbs.*: Freddie Gibbs
@@ -49,11 +49,14 @@ rewrite:
 ftintitle:
   format: (feat. {0})
 
-extrafiles:
-  patterns:
-    all:
-      - "*.*"
-      - "*/"
+# extrafiles:
+#   patterns:
+#     all:
+#       - "*.*"
+#       - "*/"
+
+filetote:
+  extensions: .*
 
 zero:
   fields: comments bpm
