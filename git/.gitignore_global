@@ -10,3 +10,7 @@
 **/*.log
 # ssh
 **/id_rsa
+.DS_Store
+
+# Private local AI-tool settings
+**/.claude/settings.local.json
