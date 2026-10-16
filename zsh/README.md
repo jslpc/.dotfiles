@@ -2,7 +2,7 @@
 
 ## Spaceship setup
 
-The Zsh configuration uses Oh My Zsh with the Spaceship theme. Oh My Zsh must
+The Zsh configuration uses Oh My Zsh with the Spaceship theme. It's extremely barebones. Oh My Zsh must
 already be installed at `~/.oh-my-zsh`. After cloning this repository to
 `~/.dotfiles`, install the pinned Spaceship revision:
 
