@@ -49,12 +49,6 @@ rewrite:
 ftintitle:
   format: (feat. {0})
 
-# extrafiles:
-#   patterns:
-#     all:
-#       - "*.*"
-#       - "*/"
-
 filetote:
   extensions: .*
 

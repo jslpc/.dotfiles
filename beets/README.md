@@ -2,13 +2,13 @@
 
 ![beets.io](https://user-images.githubusercontent.com/38687140/40558805-bcdb279a-607e-11e8-96f9-71b743e5cff6.png)
 
-(_I am aware that this is an unofficial logo, but it looks fantastic. [Credit](https://github.com/beetbox/beets/pull/2935)_)
+(_I am aware that this is an unofficial logo, but it'll do. [Credit](https://github.com/beetbox/beets/pull/2935)_)
 
 [beets.io](http://beets.io) - Beets is a simple music metadata inspection and modification tool for tons of audio file types.
 
 * * *
 
-My config is pretty straightforward. Right now, I import from a given directory to my external SSD where I store all of my FLAC, and write tags while doing so.
+My config is pretty straightforward. Right now, I import from a given directory to NAS where I store all of my music, and write tags while doing so.
 
 ## Structure
 
@@ -76,8 +76,7 @@ My directory structure is set up like this:
 - `importadded`: For preserving the _last modification_ times which can be useful for personal recordkeeping.
 - `lastgenre`: Used for fetching the top genres for imported albums from Last.fm. I used Claude to take my original `genres-tree.txt`, analyze a txt file containing the genre hierarchy defined by [RateYourMusic](https://rateyourmusic.com/genres/), and create a comprehensive genre tree from that, assigning subgenres to their relevant parent genres. 
   - My configuration tags a maximum of 3 genres that pass the minimum weight I've set of 68. This number is pretty arbitrary; 65 worked well enough, and 70 was ever so slightly too strict, so I just went with 68 and it surprisingly gave me good results.
-  - Genres are subjective, and Last.fm allows users to make their own for any given piece of music, leading to some wildly inaccurate tags or tags I simply don't agree with. I tend to change those tags manually, but could fix this minor issue by modifying `genres.txt` to whitelist fewer genres; though that can always lead to some albums not getting genre tags entirely due to not reaching the weight threshold.
-  - _This is in no way complete and needs a lot of work done to it. I only really focused on hip-hop and made some minor edits to a few other top-level genres, but this is probably going to change often as I work on it more. If anyone knows of a better way to automate this instead of organizing by hand, please let me know._
+  - Genres are subjective, and Last.fm allows users to make their own for any given piece of music, leading to some wildly inaccurate tags or tags I don't agree with. I tend to change those tags manually, but could fix this minor issue by modifying `genres.txt` to whitelist fewer genres; though that can always lead to some albums not getting genre tags entirely due to not reaching the weight threshold.
 
 ## Other Settings
 
